@@ -1,0 +1,7 @@
+CONTIKI_PROJECT = contiki_tut
+all: $(CONTIKI_PROJECT)
+
+
+CONTIKI = ../..
+UIP_CONF_IPV6=1
+include $(CONTIKI)/Makefile.include
