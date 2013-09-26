@@ -1,5 +1,4 @@
 #include "contiki.h"
-#include "contiki-lib.h"
 #include "contiki-net.h"
 #include <stdio.h> 
 #include <avr/io.h>
@@ -18,14 +17,8 @@ AUTOSTART_PROCESSES(&pt_example, &switch_led_on, &example_udp_server_process);
 PROCESS_THREAD(switch_led_on, ev, data)
 {
 	PROCESS_BEGIN();
-	
-	/*Switch LED on @ANY Brick On if SNMPD started and set other LEDs as Output*/
-	DDRB |= (1 << PIN5);
-	DDRB |= (1 << PIN6);
 	DDRB |= (1 << PIN7);
 	PORTB &= ~(1 << PIN7);
-	PORTB |= (1 << PIN6);
-	PORTB |= (1 << PIN5);
 	/*END LED @ANY Brick*/
 	printf("LED is on!\n");
 	
